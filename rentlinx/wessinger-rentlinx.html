@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wessinger Properties</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:200,300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <style type="text/css">
+        body {
+            background-color: #f4f1dc;
+            color: #666;
+            font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+        }
+
+        a{
+            color: rgba(0, 0, 0, 0.55);;
+            font-size: 18px;
+            font-weight: 400;
+
+        }
+
+        a:hover{
+            color: rgba(0, 0, 0, 0.55);;
+            opacity: .7;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        a.current{
+            color: #1e73be;
+        }
+
+        .nav ul li a:hover {
+            opacity: .7;
+            background-color: rgba(0,0,0,.03);
+            text-decoration: none;
+        }
+
+        .nav>li:last-child {
+            padding-right: 0;
+        }
+
+        .nav>li {
+            padding-right: 26px;
+        }
+
+        .nav>li>a {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .nav>li>a:focus, .nav>li>a:hover {
+            background-color: transparent;
+        }
+
+        .navbar{
+            background-color: #f4f1dc;
+            margin-bottom: 0 !important;
+            min-height: 74px;
+        }
+
+        .navbar-brand {
+            height: inherit;
+            padding: 0;
+        }
+
+        .navbar-nav>li>a{
+            padding-top: 10px;
+            padding-bottom: 68px;
+            line-height: 14px !important;
+        }
+
+        .navbar-right{
+            padding-top: 68px;
+            text-transform: uppercase;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            min-height: 1px;
+            text-align: center;
+            z-index: 9000;
+        }
+
+        .container-new {
+            position: relative;
+            width: 80%;
+            max-width: 1080px;
+            margin: auto;
+        }
+
+        .no-border{
+            border: none;
+        }       
+
+        div#rl-navwrap, div#ctl00_RentLinx__showingSection, div#ctl00_RentLinx__showingSection, div#rl-breadcrumbs-sub, #ctl00_RentLinx__viewTable {
+            display: none;
+        }
+
+        #WebLinxBody #rl-pageheading {
+             display: block; 
+        }
+
+        #WebLinxBody .rl-btn-bg {
+            background: #e09900 !important;
+            color: white !important;
+            border-radius: 0 !important;
+            font-weight: 400 !important;
+            font-size: 15px !important;
+            font-family: 'Lato' !important;
+        }
+
+        #WebLinxBody .rl-listtile {
+             border-bottom: transparent; !important; 
+             padding: 30px 0 !important;
+        }
+
+        #WebLinxBody .rl-fontfamily-heading {
+            font-family: 'Arimo', Helvetica !important;
+        }
+
+        #WebLinxBody .rl-favorite {
+            display: none;
+        }
+
+        #WebLinxBody .rl-font-main {
+            font-family: 'Lato' !important;
+            font-size: 15px !important;
+            line-height: 21px !important;
+            font-weight: 300 !important;
+            color: #666;
+        }
+
+        .rl-bedrooms {
+            margin-top: 10px !important;
+        }
+
+        .rl-refreshed, .rl-location, .rl-phonenumber {
+            display: none;
+        }
+
+        #cta-button a {
+            color: #fff!important;
+            padding: 9px 20px;
+        }
+
+        li#cta-button {
+            background-color:#e04b43; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            text-align: center; 
+            border-radius: 1px;
+            -moz-transition: all 0.5s; 
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        li#cta-button:hover {
+            background-color:#cc4139;
+        }
+         
+        .et-fixed-header #top-menu #cta-button a {
+            color: #fff!important;
+        }
+
+        #cta-button li.current-menu-ancestor > a, #cta-button li.current-menu-item > a {
+            color: #fff !important;
+        }
+         
+        #cta-button a {
+            padding: 9px 20px;
+            text-transform: none !important;
+        }
+
+        .svg-inline--fa.fa-w-14 {
+            width: .60em;
+        }
+
+        #WebLinxBody .rl-border-accent {
+            border-color: inherit !important;
+        }
+
+        .nav li:hover>ul {
+            visibility: visible;
+            opacity: 1;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
+
+        .nav li ul {
+            visibility: hidden;
+            z-index: 9999;
+            width: 240px;
+            border-top: 3px solid #2ea3f2;
+            opacity: 0;
+            background: #fff;
+            -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            -moz-box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            position: absolute;
+            padding: 20px 0;
+            border-color: #dd3333;
+        }
+
+        .nav li ul li {
+            list-style-type: none;
+            line-height: 2.6em;
+            text-align: left;
+            padding: 0 18px;
+        }
+
+        .nav li ul li a {
+            padding: 6px 20px;
+        }
+
+        #WebLinxBody h1 {
+            font: unset !important;
+            color: #333 !important;
+            line-height: 1em !important;
+            font-size: 30px !important;
+        }
+
+        #WebLinxBody .rl-amenity-icon {
+            background-color: #e09900 !important;
+        }
+
+        .rl-navigation {
+            display: none;
+        }
+
+        /*footer*/
+        #footer-widgets {
+            padding: 6% 0 0;
+        }
+
+        .footer-widget {
+            float: left;
+        }
+
+        .et_pb_widget {
+            float: left;
+            max-width: 100%;
+        }
+
+        .footer-widget .fwidget:last-child {
+            margin-bottom: 0!important;
+        }
+
+        #footer-info {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center !important;
+            padding-bottom: 15px;
+            font-size: 15px;
+        }
+
+        /*Mobile nav*/
+
+        .et_mobile_menu {
+            top: 74px;
+            visibility: visible;
+            position: absolute;
+            z-index: 9999;
+            left: 0;
+            width: 100%;
+            padding: 5%;
+            border-top: 3px solid #2ea3f2;
+            opacity: 1;
+            -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            -moz-box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,.1);
+            border-color: #ddceb1;
+            background-color: rgba(244,240,222,0.93);
+        }
+
+        .slider {
+            overflow-y: hidden;
+            max-height: 502px;
+            transition-property: all;
+            transition-duration: .7s;
+        }
+
+        .slider.closed {
+            max-height: 0;
+            border: none;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .et_mobile_menu li a {
+            display: block;
+            line-height: 22px;
+            padding: 12px 5%;
+            border-bottom: 1px solid rgba(0,0,0,.03);
+            color: #666;
+            font-size: 14px;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            text-align: left;
+        }
+
+        .et_mobile_menu .menu-item-has-children>a {
+            background-color: rgba(0,0,0,.03);
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        .fa-bars {
+            color: #e09900;
+            float: right
+        }
+
+        .navbar-header {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .mobile_menu_bar {
+          position: relative;
+          padding-left: 1.25em;
+          top: 12px;
+          float: right;
+        }
+
+        .mobile_menu_bar:before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 0.25em;
+            width: 19px;
+            height: 0.21em;
+            background: #e09900;
+            box-shadow: 0 0.45em 0 0 #e09900, 0 0.9em 0 0 #e09900;
+        }
+
+        li.cta-button {
+            background-color: #e04b43;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            border-radius: 1px;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        .cta-button a {
+            color: #fff !important;
+            text-transform: none !important;
+            text-align: center !important;
+        }
+
+        @media (min-width: 981px){
+            .logo {
+                width: 200px;
+            }
+
+            #main-content {
+                padding-top: 217px;
+            }
+
+            .navbar-header {
+                margin-top: 40px;
+            }
+
+            li#cta-button {
+                height: 33px;
+            }
+
+            .footer-widget {
+                width: 20.875%;
+                margin: 0 5.5% 5.5% 0;
+            }
+
+            .footer-widget.last {
+                margin-right: 0;
+            }
+
+            .nav-xs {
+                display: none;
+            }
+
+            .sub-menu{
+                background-color: #f4f0de !important;
+                top: 45px;
+            }
+        }
+
+        @media (max-width: 980px){
+            .logo {
+                max-height: 54%;
+            }
+
+            .navbar{
+                background-color: rgba(244,240,222,0.93);
+            }
+
+            #main-content {
+                padding-top: 75px;
+            }
+
+            #WebLinxBody .rl-image .RL_Thumbnail {
+                max-width: unset !important;
+            }
+
+            #WebLinxBody .rl-font-main {
+                font-size: 14px !important;
+            }
+
+            #footer-widgets .footer-widget:nth-child(2n) {
+                margin-right: 0!important;
+            }
+
+            .footer-widget:nth-child(n) {
+                width: 46.25%!important;
+                margin: 0 7.5% 7.5% 0!important;
+            }
+
+            .nav-lg {
+                display: none;
+            }
+
+            .nav-xs {
+                display: block;
+                padding-top: 16px;
+            }
+
+            .sub-menu{
+                background-color: transparent;
+                top: 45px;
+            }
+        }
+
+        @media (max-width: 479px){
+            #footer-widgets .footer-widget:nth-child(n), .footer-widget .fwidget {
+                margin-bottom: 11.5%!important;
+            }
+        }
+
+        @media (max-width: 767px){
+            #footer-widgets .footer-widget .fwidget, #footer-widgets .footer-widget:nth-child(n) {
+                margin-bottom: 9.5%!important;
+            }
+
+            #footer-widgets .footer-widget, .et_pb_gutters1 #footer-widgets .footer-widget {
+                width: 100%!important;
+                margin-right: 0!important;
+            }
+
+            .col-2xf .xf-col-left {
+                float: unset;
+            }
+
+            .col-2xf .xf-col-left img {
+                width: 100% !important;
+            }
+
+            .col-2xf .xf-col-main {
+                margin-left: unset !important;
+            }
+
+            #WebLinxBody .xf-col-left {
+                float: unset;
+                width: 100%;
+            }
+}
+
+
+</style>
+<WebLinxHeadCode />
+</head>
+
+<body>
+    <div class="header" id="test">
+        <div class=container-new>
+            <div class="navbar">
+                <div class="nav-lg">
+                    <div class="navbar-header">
+                        <a href="http://affordablemarketingideas.com/wessingerproperties/" class="navbar-brand no-hover">
+                            <img class="logo" src="http://affordablemarketingideas.com/wessingerproperties/wp-content/uploads/2018/01/horizontal_logo.png" alt="Wessinger Properties | Ann Arbor Rentals">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav navbar-right landing-page-nav__links">
+                            <li><a href="http://affordablemarketingideas.com/wessingerproperties/">Home</a></li>
+                            <li><a class="current" href="http://wessingerproperties1.rentlinx.com/listings">Properties</a></li>
+                            <li>
+                                <a href="http://wessingerproperties1.rentlinx.com/listings">Information&nbsp;&nbsp;&nbsp;<i class="fas fa-xs fa-chevron-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li id="menu-item-628" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-628"><a href="http://affordablemarketingideas.com/wessingerproperties/leasing-info/">Leasing Info</a></li>
+                                    <li id="menu-item-627" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-627"><a href="http://affordablemarketingideas.com/wessingerproperties/faq/">FAQ</a></li>
+                                    <li id="menu-item-1661" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1661"><a href="http://affordablemarketingideas.com/wessingerproperties/meet-our-team/">Meet Our Team</a></li>
+                                    <li id="menu-item-626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"><a href="http://affordablemarketingideas.com/wessingerproperties/contact-us/">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li id="cta-button"><a href="http://affordablemarketingideas.com/wessingerproperties/?s=">Current Listings</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-xs">
+                    <div class="navbar-header float-left">
+                        <a href="#" class="navbar-brand no-hover">
+                            <img class="logo" src="http://affordablemarketingideas.com/wessingerproperties/wp-content/uploads/2018/01/horizontal_logo.png" alt="Wessinger Properties | Ann Arbor Rentals">
+                        </a>
+                    </div>
+                    <div class="mobile_nav opened">
+                        <span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+                        <ul id="mobile_menu" class="et_mobile_menu slider closed">
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item current_page_item et_first_mobile_item"><a href="http://affordablemarketingideas.com/wessingerproperties/">Home</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a href="http://wessingerproperties1.rentlinx.com/listings">Properties</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Information</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://affordablemarketingideas.com/wessingerproperties/leasing-info/">Leasing Info</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://affordablemarketingideas.com/wessingerproperties/faq/">FAQ</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://affordablemarketingideas.com/wessingerproperties/meet-our-team/">Meet Our Team</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://affordablemarketingideas.com/wessingerproperties/contact-us/">Contact Us</a></li>
+                            </ul>
+                            </li>
+                            <li class="cta-button menu-item menu-item-type-custom menu-item-object-custom"><a href="http://affordablemarketingideas.com/wessingerproperties/?s=">Current Listings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container-new" id="main-content">      
+        <div class="row section">
+            <div class="col-sm-12">
+                <div class="content">
+                    <WebLinxBody />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<footer id="main-footer">
+    <div class="container-new">
+        <div id="footer-widgets" class="clearfix">
+            <div class="footer-widget">
+                <div id="text-2" class="fwidget et_pb_widget widget_text">           
+                    <div class="textwidget">
+                        <p>
+                            <a href="http://wessingerproperties1.rentlinx.com/map/">
+                                <img class="aligncenter" src="http://affordablemarketingideas.com/wessingerproperties/wp-content/uploads/2017/10/map-icont.png" alt="" width="100">
+                            </a>
+                        </p>
+                        <div align="center"><strong>Property Map</strong></div>
+                    </div>
+                </div> <!-- end .fwidget -->
+            </div> <!-- end .footer-widget -->
+            <div class="footer-widget">
+                <div id="text-3" class="fwidget et_pb_widget widget_text">         
+                    <div class="textwidget">
+                        <p>
+                            <a href="https://offcampus.umich.edu/beyondthediag" target="_blank" rel="noopener">
+                                <img class="size-full wp-image-139 alignright" src="http://affordablemarketingideas.com/wessingerproperties/wp-content/uploads/2017/01/Mich.png" alt="" width="100" height="120">
+                            </a>
+                        </p>
+                    </div>
+                </div> <!-- end .fwidget -->
+            </div> <!-- end .footer-widget -->
+            <div class="footer-widget">
+                <div id="text-4" class="fwidget et_pb_widget widget_text">         
+                    <div class="textwidget">
+                        <p>
+                            <a href="http://www.a2gov.org/Pages/default.aspx" target="_blank" rel="noopener">
+                                <img class="alignnone size-full wp-image-142 aligncenter" src="http://affordablemarketingideas.com/wessingerproperties/wp-content/uploads/2017/01/annarbor.png" alt="" width="100" height="100">
+                            </a>
+                        </p>
+                    </div>
+                </div> <!-- end .fwidget -->
+            </div> <!-- end .footer-widget -->
+            <div class="footer-widget last">
+                <div id="text-5" class="fwidget et_pb_widget widget_text">            
+                    <div class="textwidget">
+                        <p>
+                            <a href="http://www.wa3hq.org/" target="_blank" rel="noopener">
+                                <img class="size-full wp-image-140 aligncenter" src="http://affordablemarketingideas.com/wessingerproperties/wp-content/uploads/2017/01/waaalink.png" alt="" width="100" height="100">
+                            </a>
+                        </p>
+                    </div>
+                </div> <!-- end .fwidget -->
+            </div> <!-- end .footer-widget -->  
+        </div> <!-- #footer-widgets -->
+    </div>  <!-- .container -->
+          
+    <div id="footer-bottom">
+        <div class="container-new clearfix">
+    <div id="footer-info"><span>&copy;</span>Wessinger Properties | Ann Arbor Rentals, <span class="divibooster_year">2018</span><script>jQuery(function($){$(".divibooster_year").text(new Date().getFullYear());});</script></div>                  
+     </div>  <!-- .container -->
+    </div>
+</footer>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".availability-alert").parents(".rl-tile").css("display","none")
+        
+        $(window).on("scroll",function(){
+            var wn = $(this).scrollTop();
+            if(window.innerWidth > 980 && wn > 100){
+                $(".header").css("-webkit-box-shadow", "0 0 7px rgba(0,0,0,.1)");
+                $(".header").css("-moz-box-shadow", "0 0 7px rgba(0,0,0,.1)");
+                $(".header").css("box-shadow", "0 0 7px rgba(0,0,0,.1)");
+                $(".header").css("transition-duration", "0.2s");
+            }
+            else{
+                $(".header").removeAttr("style")
+            }
+          });
+
+        $(".mobile_menu_bar_toggle").click(function(){
+            $(".slider").toggleClass("closed");
+        });
+    });
+</script>
+</html> 
